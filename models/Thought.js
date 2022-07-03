@@ -1,8 +1,9 @@
 const { Schema, model, Types } = require('mongoose');
+const reactionSchema = require('./Reaction');
 
 const ThoughtSchema = new Schema (
     {
-        throughtext: {
+        thoughtText: {
             type: String,
             required: true,
             minLength: 1,

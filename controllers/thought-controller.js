@@ -3,7 +3,7 @@ const { User, Thought } = require('../models');
 const thoughtController = {
     //to find all the thoughts
     getAllThoughts (req, res) {
-        Thought.findOne({})
+        Thought.find({})
         .then(dbThoughtData => res.json(dbThoughtData))
         .catch(err => {
             console.log(err);
@@ -54,7 +54,7 @@ const thoughtController = {
                 return;
             }
 
-            res.json(dbUserData);
+            res.json(dbUsersData);
         })
         .catch(err => {
             console.log(err);
