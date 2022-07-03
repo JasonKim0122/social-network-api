@@ -13,7 +13,7 @@ const thoughtController = {
 
     //find one thought by id
     getThoughtById ({ params }, res) {
-        Thought.findOne ({ _id: params.id })
+        Thought.findOne({ _id: params.thoughtId })
         .select('-__v')
         .sort({ _id: -1 })
         .then(dbThoughtData => {
@@ -98,7 +98,7 @@ const thoughtController = {
             }
 
             return User.findOneAndUpdate({
-                thoughts: params.thoughtId
+                _id: params.thoughtId
             },
             {
                 $pull: {
