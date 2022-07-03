@@ -133,7 +133,7 @@ const userController = {
 
     //remove friend
     removeFromFriends ({ params }, res) {
-        User.findOneAndDelete({ _id: params.thoughtId })
+        User.findOneAndDelete({ _id: params.userId })
         .then(deletedFriend => {
             if (!deletedFriend) {
                 res.status(404).json({message: 'There was no friend found with this ID' });
@@ -162,7 +162,7 @@ const userController = {
         })
         .catch(err => {
             console.log(err);
-            res.json(err);
+            res.status(500).json(err);
         })
     }
 };
